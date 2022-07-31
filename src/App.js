@@ -1,7 +1,6 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
-import { mockComponent } from 'react-dom/test-utils';
 
 class App extends Component {
 
@@ -22,12 +21,20 @@ class App extends Component {
       }))
   }
 
+  onSearchChange = (event) => {
+    const searchField = event.target.value.toLocaleLowerCase()
+    this.setState(() => {
+      return { searchField }
+    })
+  }
 
   render() {
 
-    const filteredPokemons = this.state.pokemons.filter((pokemon) => {
-      return pokemon.name.english.toLocaleLowerCase().includes(this.state.searchField)
+    const { pokemons, searchField } = this.state
+    const { onSearchChange } = this
 
+    const filteredPokemons = pokemons.filter((pokemon) => {
+      return pokemon.name.english.toLocaleLowerCase().includes(searchField)
     })
 
     return (
@@ -36,15 +43,9 @@ class App extends Component {
           className='search-box'
           type='search'
           placeholder='Search Character'
-          onChange={(event) => {
-            const searchField = event.target.value.toLocaleLowerCase()
-            this.setState(() => {
-              return { searchField }
-            })
-          }
-          }
+          onChange={onSearchChange}
         />
-        
+
         {filteredPokemons.map((pokemon) => {
           return (
             <div key={pokemon.id}>
