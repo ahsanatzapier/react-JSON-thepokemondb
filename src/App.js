@@ -41,7 +41,7 @@ class App extends Component {
     return (
       <div className='App'>
         <SearchBox
-          className='search-box'
+          className='pokemon-search-box'
           placeholder='Search Pokemon'
           onSearchHandler={onSearchChange} />
         <CardList pokemons={filteredPokemons} />
