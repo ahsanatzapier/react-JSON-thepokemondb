@@ -40,6 +40,7 @@ class App extends Component {
 
     return (
       <div className='App'>
+        <p><img src="https://fontmeme.com/permalink/220801/cd6adc6038b8d745ebf5e778582bbcf4.png" alt="pokemon-font" width="600" height="104"/></p>
         <SearchBox
           className='pokemon-search-box'
           placeholder='Search Pokemon'

@@ -1,4 +1,5 @@
 import { Component } from "react";
+import CardContainer from "../card-container/card-container.component";
 import './card-list.styles.css'
 
 class CardList extends Component {
@@ -13,11 +14,9 @@ class CardList extends Component {
         {pokemons.map((pokemon) => {
           const {english} = pokemon.name
           const {hires} = pokemon.image
+          const {id} = pokemon
           return (
-            <div key={pokemon.id} className='card-container'>
-              <img className='card-image' alt={`pokemon ${english}`} src={hires} width="150" height="150"/>
-              <h2>{english}</h2>
-            </div>
+            <CardContainer id={id} name={english} image={hires}/>
           )})}
       </div>
     )
