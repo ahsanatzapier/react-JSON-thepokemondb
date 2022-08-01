@@ -52,32 +52,35 @@ const App = () => {
 
     <div className='App'>
 
-<div className='container'>
+      <div className='container'>
 
-      {isLoading &&
-        <div>
+        {isLoading &&
+          <div>
+            <div class="d-flex justify-content-center">
+              <div class="spinner-border" role="status">
+              </div>
+            </div>
+          </div>
+        }
 
-        </div>
-      }
+        {!isLoading &&
+          <div>
 
-      {!isLoading &&
-        <div>
-          
-          <div className='text-center mt-5 mb-5'>
-          <h1>React PokeDex</h1>
+            <div className='text-center mt-5 mb-5'>
+              <h1>React PokeDex</h1>
 
-          <SearchBox
-            className='pokemon-search-box mt-3'
-            placeholder='Search Pokemon'
-            onSearchHandler={onSearchChange} />
+              <SearchBox
+                className='pokemon-search-box mt-3'
+                placeholder='Search Pokemon'
+                onSearchHandler={onSearchChange} />
             </div>
 
-          <CardList pokemons={filteredPokemons} />
-        </div>
-      }
+            <CardList pokemons={filteredPokemons} />
+          </div>
+        }
 
 
-    </div>
+      </div>
     </div>
 
   )
