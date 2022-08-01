@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 
-import CardList from './components/card-list/card-list.component';
-import SearchBox from './components/search-box/search-box.component';
+import CardList from './components/card-list';
+import SearchBox from './components/search-box';
 
 const App = () => {
 
@@ -52,15 +52,16 @@ const App = () => {
 
     <div className='App'>
 
+<h1>React PokeDex</h1>
+
       {isLoading &&
         <div>
-          
+"loading"
         </div>
       }
 
       {!isLoading &&
         <div>
-          <h1>React PokeDex</h1>
 
           <SearchBox
             className='pokemon-search-box'

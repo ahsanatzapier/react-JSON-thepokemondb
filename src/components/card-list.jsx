@@ -1,5 +1,4 @@
-import CardContainer from "../card-container/card-container.component";
-import './card-list.styles.css'
+import CardContainer from "./card-container";
 
 const CardList = ({ pokemons }) => (
   <div className='card-list'>

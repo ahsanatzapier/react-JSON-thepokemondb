@@ -1,5 +1,3 @@
-import './card-container.styles.css'
-
 const CardContainer = ({ id, name }) => {
   const formattedNumber = id.toLocaleString('en-US', {
     minimumIntegerDigits: 3
