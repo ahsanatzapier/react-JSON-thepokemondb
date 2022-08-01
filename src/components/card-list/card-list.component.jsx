@@ -5,10 +5,9 @@ const CardList = ({ pokemons }) => (
   <div className='card-list'>
     {pokemons.map((pokemon) => {
       const { english } = pokemon.name
-      const { hires } = pokemon.image
       const { id } = pokemon
       return (
-        <CardContainer id={id} name={english} image={hires} />
+        <CardContainer id={id} name={english} />
       )
     })}
   </div>
