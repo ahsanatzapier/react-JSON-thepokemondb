@@ -10,6 +10,20 @@ const App = () => {
   const [searchField, setSearchField] = useState('')
   const [pokemons, setPokemons] = useState([])
   const [filteredPokemons, setFilteredPokemon] = useState(pokemons)
+  const [isLoading, setIsLoading] = useState(true);
+
+
+  const handleLoading = () => {
+    setIsLoading(false);
+  }
+
+
+  useEffect(() => {
+    window.addEventListener("load", handleLoading);
+    return () => window.removeEventListener("load", handleLoading);
+  }, [])
+
+
 
   // setting up pokemons using side effect
   useEffect(() => {
@@ -34,15 +48,30 @@ const App = () => {
 
   return (
 
+
+
     <div className='App'>
-      <h1>React PokeDex</h1>
-      
-      <SearchBox
-        className='pokemon-search-box'
-        placeholder='Search Pokemon'
-        onSearchHandler={onSearchChange} />
-        
-      <CardList pokemons={filteredPokemons} />
+
+      {isLoading &&
+        <div>
+          
+        </div>
+      }
+
+      {!isLoading &&
+        <div>
+          <h1>React PokeDex</h1>
+
+          <SearchBox
+            className='pokemon-search-box'
+            placeholder='Search Pokemon'
+            onSearchHandler={onSearchChange} />
+
+          <CardList pokemons={filteredPokemons} />
+        </div>
+      }
+
+
     </div>
 
   )
