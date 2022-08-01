@@ -1,10 +1,14 @@
 const SearchBox = ({ className, onSearchHandler, placeholder }) => (
-  <input
-    className={`search-box ${className}`}
-    type='search'
-    placeholder={placeholder}
-    onChange={onSearchHandler}
-  />
-
-)
-export default SearchBox
+  <div>
+    <h2 className="text-white search-font">
+      Search for a Pokemon:{" "}
+      <input
+        className={`search-box  ${className}`}
+        type="search"
+        placeholder={placeholder}
+        onChange={onSearchHandler}
+      />
+    </h2>
+  </div>
+);
+export default SearchBox;
