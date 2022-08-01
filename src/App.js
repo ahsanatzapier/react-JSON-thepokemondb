@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 
-import CardList from './components/card-list';
-import SearchBox from './components/search-box';
+import CardList from './components/card-list'
+import SearchBox from './components/search-box'
 
 const App = () => {
 
@@ -52,27 +52,32 @@ const App = () => {
 
     <div className='App'>
 
-<h1>React PokeDex</h1>
+<div className='container'>
 
       {isLoading &&
         <div>
-"loading"
+
         </div>
       }
 
       {!isLoading &&
         <div>
+          
+          <div className='text-center mt-5 mb-5'>
+          <h1>React PokeDex</h1>
 
           <SearchBox
-            className='pokemon-search-box'
+            className='pokemon-search-box mt-3'
             placeholder='Search Pokemon'
             onSearchHandler={onSearchChange} />
+            </div>
 
           <CardList pokemons={filteredPokemons} />
         </div>
       }
 
 
+    </div>
     </div>
 
   )
