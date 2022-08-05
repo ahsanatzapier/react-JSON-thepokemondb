@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Home, Pokedex, Party } from "./components";
+import "./App.css";
 function App() {
   return (
     <>

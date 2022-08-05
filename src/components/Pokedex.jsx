@@ -8,6 +8,8 @@ const Pokedex = () => {
   const [filteredPokemons, setFilteredPokemon] = useState(pokemons);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [isImgLoading, setImgLoading] = useState(true);
+
   useEffect(() => {
     setIsLoading(true);
     fetch(
@@ -104,6 +106,17 @@ const Pokedex = () => {
                         </div>
 
                         <h6 className="card-subtitle mb-2 text-muted">#{id}</h6>
+
+
+                        <div style={{ display: isImgLoading ? "block" : "none" }}>
+                        <div>
+            <div className="d-flex justify-content-center">
+              <div className="spinner-border" role="status"></div>
+            </div>
+          </div>
+                        </div>
+                        <div style={{ display: isImgLoading ? "none" : "block" }}>
+                         
                         <img
                           className="card-img-top"
                           src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id.toLocaleString(
@@ -113,7 +126,23 @@ const Pokedex = () => {
                             }
                           )}.png`}
                           alt={`pokemon ${english}`}
+
+                          onLoad={() => setImgLoading(false)}
                         />
+
+                        </div>
+
+
+
+
+                        
+
+
+
+
+
+
+
                         <div className="text-center mt-3 mb-3">
                           <button type="button" className="btn btn-secondary">
                             Add to Party
