@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./home.styles.css";
 
+import { Link } from "react-router-dom";
+
 const Home = () => {
   const [searchField, setSearchField] = useState("");
   const [pokemons, setPokemons] = useState([]);
@@ -41,9 +43,6 @@ const Home = () => {
   return (
     <div className="App">
       <div className="container">
-        <div className="text-center mt-5 mb-0">
-          <h1 className="title-font">ThePokemonDB</h1>
-        </div>
         {isLoading && (
           <div>
             <div className="d-flex justify-content-center">
@@ -54,10 +53,10 @@ const Home = () => {
         {errorMessage && <div className="error">{errorMessage}</div>}
         {!isLoading && (
           <div>
-            <div className="text-center mt-4 mb-5">
+            <div className="text-center mb-5">
               <div className="search-container">
                 <h2 className="text-white search-font">
-                  Search Your Favorite Pokemon <br></br>
+                  Search For Your Favorite Pokemon <br></br>
                   <input
                     className={"search-box pokemon-search-box mt-3"}
                     type="search"
@@ -72,27 +71,33 @@ const Home = () => {
                 const { english } = pokemon.name;
                 const { id } = pokemon;
                 return (
-                  <div className="col mb-4">
-                    <div key={id} className="card bg-dark text-white">
+                  <div key={id} className="col mb-4">
+                    <div
+                      key={id}
+                      className="card card-hover bg-dark text-white"
+                    >
                       <div className="card-body">
-                        <div class="row">
-                          <div class="col">
+                        <div className="row">
+                          <div className="col">
                             <h5 className="card-title">{english}</h5>
                           </div>
-                          <div class="col-auto">
-                            <a href="/" class="text-decoration-none">
+                          <div className="col-auto">
+                            <Link
+                              to={`/pokemon/${pokemon.name.english.toLowerCase()}`}
+                              state={pokemon}
+                            >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="20"
                                 height="20"
                                 fill="white"
-                                class="bi bi-info-circle"
+                                className="bi bi-info-circle"
                                 viewBox="0 0 16 16"
                               >
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                 <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                               </svg>
-                            </a>
+                            </Link>
                           </div>
                         </div>
 
@@ -125,8 +130,6 @@ const Home = () => {
                             onLoad={() => setImgLoading(false)}
                           />
                         </div>
-
-                        <div className="text-center mt-3 mb-3"></div>
                       </div>
                     </div>
                   </div>
