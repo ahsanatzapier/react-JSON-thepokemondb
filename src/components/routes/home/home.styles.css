@@ -13,3 +13,8 @@ html body {
   font-size: 25px;
   color: white;
 }
+
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.1s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+}

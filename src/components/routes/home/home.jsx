@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "./Pokedex.styles.css";
+import "./home.styles.css";
 
-const Pokedex = () => {
+const Home = () => {
   const [searchField, setSearchField] = useState("");
   const [pokemons, setPokemons] = useState([]);
   const [filteredPokemons, setFilteredPokemon] = useState(pokemons);
@@ -42,16 +42,7 @@ const Pokedex = () => {
     <div className="App">
       <div className="container">
         <div className="text-center mt-5 mb-5">
-          <h1 className="title-font">Pokedex Party</h1>
-          <nav class="nav nav-pills nav-justified mt-4 gap-3">
-            <a class="nav-link active" href="/pokedex">
-              <p className="h4 mb-0 mt-0">Pokedex</p>
-            </a>
-
-            <a class="nav-link bg-white text-dark" href="/party">
-              <p className="h4 mb-0 mt-0">Party</p>
-            </a>
-          </nav>
+          <h1 className="title-font">ThePokemonDB</h1>
         </div>
         {isLoading && (
           <div>
@@ -107,47 +98,35 @@ const Pokedex = () => {
 
                         <h6 className="card-subtitle mb-2 text-muted">#{id}</h6>
 
-
-                        <div style={{ display: isImgLoading ? "block" : "none" }}>
-                        <div>
-            <div className="d-flex justify-content-center">
-              <div className="spinner-border" role="status"></div>
-            </div>
-          </div>
+                        <div
+                          style={{ display: isImgLoading ? "block" : "none" }}
+                        >
+                          <div>
+                            <div className="d-flex justify-content-center">
+                              <div
+                                className="spinner-border"
+                                role="status"
+                              ></div>
+                            </div>
+                          </div>
                         </div>
-                        <div style={{ display: isImgLoading ? "none" : "block" }}>
-                         
-                        <img
-                          className="card-img-top"
-                          src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id.toLocaleString(
-                            "en-US",
-                            {
-                              minimumIntegerDigits: 3,
-                            }
-                          )}.png`}
-                          alt={`pokemon ${english}`}
-
-                          onLoad={() => setImgLoading(false)}
-                        />
-
+                        <div
+                          style={{ display: isImgLoading ? "none" : "block" }}
+                        >
+                          <img
+                            className="card-img-top"
+                            src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id.toLocaleString(
+                              "en-US",
+                              {
+                                minimumIntegerDigits: 3,
+                              }
+                            )}.png`}
+                            alt={`pokemon ${english}`}
+                            onLoad={() => setImgLoading(false)}
+                          />
                         </div>
 
-
-
-
-                        
-
-
-
-
-
-
-
-                        <div className="text-center mt-3 mb-3">
-                          <button type="button" className="btn btn-secondary">
-                            Add to Party
-                          </button>
-                        </div>
+                        <div className="text-center mt-3 mb-3"></div>
                       </div>
                     </div>
                   </div>
@@ -161,4 +140,4 @@ const Pokedex = () => {
   );
 };
 
-export default Pokedex;
+export default Home;
