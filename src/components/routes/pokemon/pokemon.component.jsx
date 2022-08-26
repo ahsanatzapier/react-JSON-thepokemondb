@@ -24,8 +24,9 @@ const Pokemon = (props) => {
           <div className="card rounded-0 bg-dark text-white">
             <div className="card-body">
               <h1 className="card-title mb-3">{pokemon.name.english}</h1>
+              <h6 className="card-subtitle mb-4 text-muted">#{pokemon.id}</h6>
               <p className="card-text mb-4">{pokemon.description}</p>
-              <h4>
+              <h5>
                 <span class="badge text-bg-secondary me-2 mb-2">
                   HP: {pokemon.base.HP}
                 </span>
@@ -41,7 +42,7 @@ const Pokemon = (props) => {
                 <span class="badge text-bg-secondary me-2 mb-2">
                   Speed: {pokemon.base.Speed}
                 </span>
-              </h4>
+              </h5>
             </div>
           </div>
         </div>

@@ -2,6 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./home.styles.css";
 
+// import { addCollectionandDocuments } from "../../../utils/firebase/firebase.utils";
+// import POKEMON_DATA from "../../../pokemon";
+
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -11,6 +14,10 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isImgLoading, setImgLoading] = useState(true);
+
+  // useEffect(() => {
+  //   addCollectionandDocuments("pokemon", POKEMON_DATA);
+  // }, []);
 
   useEffect(() => {
     setIsLoading(true);

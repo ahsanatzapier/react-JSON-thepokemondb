@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# Live Demo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://thepokemondb.netlify.app/
+
+# What is The Pokemon DB?
+
+The Pokemon DB is a database of Pokemon. It uses React for UI development and fetches information about the pokemon from a remote JSON file. The application creates Pokemon cards with their name, number, and picture. There is a search bar which can be used to filter and search for the pokemon by name. An information icon, when clicked, takes you to a full page detail of the pokemon.
+
+# Preview
+
+![](https://cdn.zappy.app/9b244fd9e0e93227a5b8d87d1ffaceb3.png)
+
+![](https://cdn.zappy.app/5b5a2166c7d14822730701e02c784ad9.png)
+
+![](https://cdn.zappy.app/eb5fd5ad966655e7865fbb3c69b5173f.png)
 
 ## Available Scripts
 
