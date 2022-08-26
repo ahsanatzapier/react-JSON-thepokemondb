@@ -41,7 +41,7 @@ const Home = () => {
   return (
     <div className="App">
       <div className="container">
-        <div className="text-center mt-5 mb-5">
+        <div className="text-center mt-5 mb-0">
           <h1 className="title-font">ThePokemonDB</h1>
         </div>
         {isLoading && (
@@ -54,10 +54,10 @@ const Home = () => {
         {errorMessage && <div className="error">{errorMessage}</div>}
         {!isLoading && (
           <div>
-            <div className="text-center mt-5 mb-5">
-              <div>
+            <div className="text-center mt-4 mb-5">
+              <div className="search-container">
                 <h2 className="text-white search-font">
-                  Search for a Pokemon:{" "}
+                  Search Your Favorite Pokemon <br></br>
                   <input
                     className={"search-box pokemon-search-box mt-3"}
                     type="search"
