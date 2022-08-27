@@ -1,24 +1,20 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-import PokemonList from "../../pokemon-list/pokemon-list.component";
-import SearchContainer from "../../search-container/search-container.component";
-
+import PokemonList from "../../components/pokemon-list/pokemon-list.component";
+import SearchContainer from "../../components/search-container/search-container.component";
 import "./home.styles.css";
 
 // import { addCollectionandDocuments } from "../../../utils/firebase/firebase.utils";
 // import POKEMON_DATA from "../../../pokemon";
 
-import { getCategoriesAndDocuments } from "../../../utils/firebase/firebase.utils";
-
-import { Link } from "react-router-dom";
+import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
 
 const Home = () => {
   const [searchField, setSearchField] = useState("");
   const [pokemons, setPokemons] = useState([]);
   const [filteredPokemons, setFilteredPokemon] = useState(pokemons);
   const [isLoading, setIsLoading] = useState(false);
-  const [isImgLoading, setImgLoading] = useState(true);
 
   // useEffect(() => {
   //   addCollectionandDocuments("pokemons", POKEMON_DATA);

@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./components/routes/home/home";
-import Pokemon from "./components/routes/pokemon/pokemon.component";
-import Navigation from "./components/routes/navigation/navigation.component";
+
+import Home from "./routes/home/home.component";
+import Pokemon from "./routes/pokemon/pokemon.component";
+import Navigation from "./routes/navigation/navigation.component";
 
 function App() {
   return (

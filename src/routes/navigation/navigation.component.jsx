@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Link, Outlet } from "react-router-dom";
 
-import logo from "../../../assets/logo.svg";
+import logo from "../../assets/logo.svg";
 
 import "./navigation.styles.css";
 
