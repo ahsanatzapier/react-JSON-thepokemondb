@@ -4,6 +4,8 @@ https://thepokemondb.netlify.app/
 
 # What is The Pokemon DB?
 
+![](https://github.com/ahsanatzapier/react-thepokemondb/blob/main/src/assets/logo.svg)
+
 The Pokemon DB is a database of Pokemon. It uses React for UI development and Firebase for the database. The application creates Pokemon cards with their name, number, and picture. There is a search bar which can be used to filter and search for the pokemon by name. An information icon, when clicked, takes you to a full page detail of the pokemon.
 
 # Preview
