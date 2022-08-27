@@ -7,34 +7,34 @@ const Pokemon = (props) => {
   const { id, name, imageUrl, description, hp, attack, defense, speed } = state;
 
   return (
-    <section className="section cocktail-section">
+    <section className="section pokemon-section">
       <Link to="/" className="btn btn-primary">
         back home
       </Link>
       <h2 className="section-title">{name}</h2>
-      <div className="drink">
+      <div className="poke">
         <img src={imageUrl} alt={name}></img>
-        <div className="drink-info">
+        <div className="poke-info">
           <p>
-            <span className="drink-data">ID :</span> {id}
+            <span className="poke-data">ID :</span> {id}
           </p>
           <p>
-            <span className="drink-data">Name :</span> {name}
+            <span className="poke-data">Name :</span> {name}
           </p>
           <p>
-            <span className="drink-data">Description :</span> {description}
+            <span className="poke-data">Description :</span> {description}
           </p>
           <p>
-            <span className="drink-data">HP:</span> {hp}
+            <span className="poke-data">HP:</span> {hp}
           </p>
           <p>
-            <span className="drink-data">Attack:</span> {attack}
+            <span className="poke-data">Attack:</span> {attack}
           </p>
           <p>
-            <span className="drink-data">Defense:</span> {defense}
+            <span className="poke-data">Defense:</span> {defense}
           </p>
           <p>
-            <span className="drink-data">Speed:</span> {speed}
+            <span className="poke-data">Speed:</span> {speed}
           </p>
         </div>
       </div>

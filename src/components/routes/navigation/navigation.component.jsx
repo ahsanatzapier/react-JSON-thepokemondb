@@ -11,7 +11,7 @@ const Navigation = () => {
       <nav className="navbar">
         <div className="nav-center">
           <Link to="/">
-            <img src={logo} alt="cocktail db logo" className="logo" />
+            <img src={logo} alt="pokemon db logo" className="logo" />
           </Link>
           <ul className="nav-links">
             <li>

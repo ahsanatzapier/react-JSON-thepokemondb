@@ -6,7 +6,7 @@ const PokemonList = ({ pokemons }) => {
   return (
     <section className="section">
       <h2 className="section-title">Pokemons</h2>
-      <div className="cocktails-center">
+      <div className="pokemons-center">
         {pokemons.map((pokemon) => {
           const { id, name, imageUrl } = pokemon;
           return <PokemonCard key={id} pokemon={pokemon} />;

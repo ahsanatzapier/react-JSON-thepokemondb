@@ -9,18 +9,16 @@
   margin-bottom: 3.5rem;
   margin-top: 1rem;
 }
-.cocktails-center {
+.pokemons-center {
   width: var(--smallWidth);
   margin: 0 auto;
   max-width: var(--fullWidth);
   display: grid;
   row-gap: 2rem;
   column-gap: 2rem;
-  /* align-items: start; */
 }
 @media screen and (min-width: 576px) {
-  .cocktails-center {
-    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
+  .pokemons-center {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   }
 }
