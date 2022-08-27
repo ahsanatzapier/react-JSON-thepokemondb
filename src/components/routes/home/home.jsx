@@ -5,6 +5,8 @@ import "./home.styles.css";
 // import { addCollectionandDocuments } from "../../../utils/firebase/firebase.utils";
 // import POKEMON_DATA from "../../../pokemon";
 
+import { getCategoriesAndDocuments } from "../../../utils/firebase/firebase.utils";
+
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -12,32 +14,27 @@ const Home = () => {
   const [pokemons, setPokemons] = useState([]);
   const [filteredPokemons, setFilteredPokemon] = useState(pokemons);
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
   const [isImgLoading, setImgLoading] = useState(true);
 
   // useEffect(() => {
-  //   addCollectionandDocuments("pokemon", POKEMON_DATA);
+  //   addCollectionandDocuments("pokemons", POKEMON_DATA);
   // }, []);
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(
-      "https://raw.githubusercontent.com/Purukitto/pokemon-data.json/master/pokedex.json"
-    )
-      .then((response) => response.json())
-      .then((pokemons) => {
-        setPokemons(pokemons);
-        setIsLoading(false);
-      })
-      .catch(() => {
-        setErrorMessage("Unable to fetch pokemons");
-        setIsLoading(false);
-      });
+    const getCategoriesMap = async () => {
+      const categoryMap = await getCategoriesAndDocuments();
+      setPokemons(categoryMap.pokemon);
+      setIsLoading(false);
+    };
+    getCategoriesMap(pokemons);
   }, []);
+
+  console.log(pokemons);
 
   useEffect(() => {
     const newFilteredPokemons = pokemons.filter((pokemon) => {
-      return pokemon.name.english.toLocaleLowerCase().includes(searchField);
+      return pokemon.name.toLocaleLowerCase().includes(searchField);
     });
     setFilteredPokemon(newFilteredPokemons);
   }, [pokemons, searchField]);
@@ -57,7 +54,6 @@ const Home = () => {
             </div>
           </div>
         )}
-        {errorMessage && <div className="error">{errorMessage}</div>}
         {!isLoading && (
           <div>
             <div className="text-center mb-5">
@@ -75,8 +71,8 @@ const Home = () => {
             </div>
             <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
               {filteredPokemons.map((pokemon) => {
-                const { english } = pokemon.name;
-                const { id } = pokemon;
+                const { id, name, imageUrl } = pokemon;
+                console.log(id);
                 return (
                   <div key={id} className="col mb-4">
                     <div
@@ -86,11 +82,11 @@ const Home = () => {
                       <div className="card-body">
                         <div className="row">
                           <div className="col">
-                            <h5 className="card-title">{english}</h5>
+                            <h5 className="card-title">{name}</h5>
                           </div>
                           <div className="col-auto">
                             <Link
-                              to={`/pokemon/${pokemon.name.english.toLowerCase()}`}
+                              to={`/pokemon/${name.toLowerCase()}`}
                               state={pokemon}
                             >
                               <svg
@@ -127,13 +123,8 @@ const Home = () => {
                         >
                           <img
                             className="card-img-top"
-                            src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id.toLocaleString(
-                              "en-US",
-                              {
-                                minimumIntegerDigits: 3,
-                              }
-                            )}.png`}
-                            alt={`pokemon ${english}`}
+                            src={imageUrl}
+                            alt={`pokemon ${name}`}
                             onLoad={() => setImgLoading(false)}
                           />
                         </div>
