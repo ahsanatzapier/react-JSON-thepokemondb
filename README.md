@@ -10,11 +10,11 @@ The Pokemon DB is a database of Pokemon. It uses React for UI development and Fi
 
 # Preview
 
-![](https://cdn.zappy.app/c0178be8c8acbefd520a9ecc1251e872.png)
+![](https://cdn.zappy.app/67891e88e97ea98a03832f61f1b96aef.png)
 
-![](https://cdn.zappy.app/921ec6cb4e6db3b19c8b5eb3b33f6baa.png)
+![](https://cdn.zappy.app/29b1f490a041b8c20764b443956076b6.png)
 
-![](https://cdn.zappy.app/923085a7dd0598847211a2b7be216114.png)
+![](https://cdn.zappy.app/a020acaf99da350978c71ea5bbf3df46.png)
 
 ## Available Scripts
 
