@@ -4,53 +4,41 @@ import "./pokemon.styles.css";
 
 const Pokemon = (props) => {
   const { state } = useLocation();
-  const pokemon = state;
-  // console.log(pokemon);
+  const { id, name, imageUrl, description, hp, attack, defense, speed } = state;
+
   return (
-    <div class="container">
-      <div class="row">
-        <div class="col-md">
-          <img
-            className="image"
-            src={pokemon.imageUrl}
-            alt={`pokemon ${pokemon.name}`}
-          />
-        </div>
-        <div class="col-md">
-          <div className="card rounded-0 bg-dark text-white">
-            <div className="card-body">
-              <h1 className="card-title mb-3">{pokemon.name}</h1>
-              <h6 className="card-subtitle mb-4 text-muted">#{pokemon.id}</h6>
-              <p className="card-text mb-4">{pokemon.description}</p>
-              <h5>
-                <span class="badge text-bg-secondary me-2 mb-2">
-                  HP: {pokemon.hp}
-                </span>
-
-                <span class="badge text-bg-secondary me-2 mb-2">
-                  Attack: {pokemon.attack}
-                </span>
-
-                <span class="badge text-bg-secondary me-2 mb-2">
-                  Defense: {pokemon.defense}
-                </span>
-
-                <span class="badge text-bg-secondary me-2 mb-2">
-                  Speed: {pokemon.speed}
-                </span>
-              </h5>
-            </div>
-          </div>
+    <section className="section cocktail-section">
+      <Link to="/" className="btn btn-primary">
+        back home
+      </Link>
+      <h2 className="section-title">{name}</h2>
+      <div className="drink">
+        <img src={imageUrl} alt={name}></img>
+        <div className="drink-info">
+          <p>
+            <span className="drink-data">ID :</span> {id}
+          </p>
+          <p>
+            <span className="drink-data">Name :</span> {name}
+          </p>
+          <p>
+            <span className="drink-data">Description :</span> {description}
+          </p>
+          <p>
+            <span className="drink-data">HP:</span> {hp}
+          </p>
+          <p>
+            <span className="drink-data">Attack:</span> {attack}
+          </p>
+          <p>
+            <span className="drink-data">Defense:</span> {defense}
+          </p>
+          <p>
+            <span className="drink-data">Speed:</span> {speed}
+          </p>
         </div>
       </div>
-      <div class="button-container">
-        <Link to="/">
-          <button className="btn btn-dark btn-lg">
-            <strong>Back to all Pokemon</strong>
-          </button>
-        </Link>
-      </div>
-    </div>
+    </section>
   );
 };
 export default Pokemon;
