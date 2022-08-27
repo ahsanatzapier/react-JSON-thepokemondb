@@ -5,7 +5,7 @@ import "./pokemon.styles.css";
 const Pokemon = (props) => {
   const { state } = useLocation();
   const pokemon = state;
-  console.log(pokemon);
+  // console.log(pokemon);
   return (
     <div class="container">
       <div class="row">

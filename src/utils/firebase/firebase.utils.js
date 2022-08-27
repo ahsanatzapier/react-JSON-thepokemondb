@@ -23,9 +23,9 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+// eslint-disable-next-line
 const app = initializeApp(firebaseConfig);
 
-// eslint-disable-next-line
 export const db = getFirestore();
 
 export const addCollectionandDocuments = async (

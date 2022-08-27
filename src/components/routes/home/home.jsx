@@ -20,7 +20,7 @@ const Home = () => {
   //   addCollectionandDocuments("pokemons", POKEMON_DATA);
   // }, []);
 
-  useEffect(() => {
+  useEffect((pokemons) => {
     setIsLoading(true);
     const getCategoriesMap = async () => {
       const categoryMap = await getCategoriesAndDocuments();
@@ -30,7 +30,7 @@ const Home = () => {
     getCategoriesMap(pokemons);
   }, []);
 
-  console.log(pokemons);
+  // console.log(pokemons);
 
   useEffect(() => {
     const newFilteredPokemons = pokemons.filter((pokemon) => {
@@ -72,7 +72,7 @@ const Home = () => {
             <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
               {filteredPokemons.map((pokemon) => {
                 const { id, name, imageUrl } = pokemon;
-                console.log(id);
+                // console.log(id);
                 return (
                   <div key={id} className="col mb-4">
                     <div
