@@ -10,11 +10,11 @@ The Pokemon DB is a database of Pokemons fetched from a remote JSON file. It use
 
 # Preview
 
-![](https://cdn.zappy.app/67891e88e97ea98a03832f61f1b96aef.png)
+![](https://cdn.zappy.app/91319935ea711b32a9818a8063e68ec0.png)
 
-![](https://cdn.zappy.app/29b1f490a041b8c20764b443956076b6.png)
+![](https://cdn.zappy.app/d2151d3c9509a409b6d5c03383fc1686.png)
 
-![](https://cdn.zappy.app/a020acaf99da350978c71ea5bbf3df46.png)
+![](https://cdn.zappy.app/2d4eb128b2070fdcf0f366fcb8bcf0aa.png)
 
 ## Available Scripts
 
