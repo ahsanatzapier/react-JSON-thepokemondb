@@ -8,8 +8,7 @@ const PokemonList = ({ pokemons }) => {
       <h2 className="section-title">Pokemons</h2>
       <div className="pokemons-center">
         {pokemons.map((pokemon) => {
-          const { id, name, imageUrl } = pokemon;
-          return <PokemonCard key={id} pokemon={pokemon} />;
+          return <PokemonCard key={pokemon.id} pokemon={pokemon} />;
         })}
       </div>
     </section>

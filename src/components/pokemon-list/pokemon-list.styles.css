@@ -1,5 +1,5 @@
 .section {
-  padding: 2rem 0;
+  padding: 0rem 0;
 }
 .section-title {
   font-size: 2rem;
@@ -17,7 +17,7 @@
   row-gap: 2rem;
   column-gap: 2rem;
 }
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 300px) {
   .pokemons-center {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   }

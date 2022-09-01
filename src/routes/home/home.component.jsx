@@ -5,36 +5,25 @@ import PokemonList from "../../components/pokemon-list/pokemon-list.component";
 import SearchContainer from "../../components/search-container/search-container.component";
 import "./home.styles.css";
 
-// import { addCollectionandDocuments } from "../../../utils/firebase/firebase.utils";
-// import POKEMON_DATA from "../../../pokemon";
-
-import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
-
 const Home = () => {
   const [searchField, setSearchField] = useState("");
   const [pokemons, setPokemons] = useState([]);
   const [filteredPokemons, setFilteredPokemon] = useState(pokemons);
-  const [isLoading, setIsLoading] = useState(false);
-
-  // useEffect(() => {
-  //   addCollectionandDocuments("pokemons", POKEMON_DATA);
-  // }, []);
 
   useEffect((pokemons) => {
-    setIsLoading(true);
-    const getCategoriesMap = async () => {
-      const categoryMap = await getCategoriesAndDocuments();
-      setPokemons(categoryMap.pokemon);
-      setIsLoading(false);
-    };
-    getCategoriesMap(pokemons);
+    // setIsLoading(true);
+    fetch(
+      "https://raw.githubusercontent.com/Purukitto/pokemon-data.json/master/pokedex.json"
+    )
+      .then((response) => response.json())
+      .then((pokemons) => setPokemons(pokemons));
   }, []);
 
   // console.log(pokemons);
 
   useEffect(() => {
     const newFilteredPokemons = pokemons.filter((pokemon) => {
-      return pokemon.name.toLocaleLowerCase().includes(searchField);
+      return pokemon.name.english.toLocaleLowerCase().includes(searchField);
     });
     setFilteredPokemon(newFilteredPokemons);
   }, [pokemons, searchField]);
@@ -47,19 +36,8 @@ const Home = () => {
   return (
     <div className="App">
       <div className="container">
-        {isLoading && (
-          <div>
-            <div className="d-flex justify-content-center">
-              <div className="spinner-border" role="status"></div>
-            </div>
-          </div>
-        )}
-        {!isLoading && (
-          <div>
-            <SearchContainer onSearchHandler={onSearchChange} />
-            <PokemonList pokemons={filteredPokemons} />
-          </div>
-        )}
+        <SearchContainer onSearchHandler={onSearchChange} />
+        <PokemonList pokemons={filteredPokemons} />
       </div>
     </div>
   );

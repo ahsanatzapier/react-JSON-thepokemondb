@@ -6,18 +6,20 @@
   display: grid;
   grid-template-rows: auto 1fr;
   border-radius: var(--mainBorderRadius);
+  text-align: center;
 }
 .pokemon:hover {
   box-shadow: var(--darkShadow);
 }
 .pokemon img {
-  height: 20rem;
+  /* height: 20rem; */
   object-fit: cover;
   border-top-left-radius: var(--mainBorderRadius);
   border-top-right-radius: var(--mainBorderRadius);
 }
 .pokemon-footer {
   padding: 1.5rem;
+  padding-top: 0rem;
 }
 .pokemon-footer h3,
 .pokemon-footer h4,

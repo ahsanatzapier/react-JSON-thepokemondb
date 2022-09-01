@@ -12,6 +12,7 @@
 }
 .poke img {
   border-radius: var(--mainBorderRadius);
+  width: 100%;
 }
 .poke p {
   font-weight: bold;
