@@ -1,5 +1,5 @@
+import React from "react";
 import PokemonCard from "../pokemon-card/pokemon-card.component";
-
 import "./pokemon-list.styles.css";
 
 const PokemonList = ({ pokemons }) => {

@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import "./pokemon-card.styles.css";
 
@@ -10,7 +11,6 @@ const PokemonCard = ({ pokemon }) => {
     minimumIntegerDigits: 3,
   });
 
-  // console.log(pokemon);
   return (
     <article className="pokemon">
       <div className="img-container">

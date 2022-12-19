@@ -1,46 +1,46 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-import PokemonList from "../../components/pokemon-list/pokemon-list.component";
-import SearchContainer from "../../components/search-container/search-container.component";
-import "./home.styles.css";
-
-const Home = () => {
-  const [searchField, setSearchField] = useState("");
-  const [pokemons, setPokemons] = useState([]);
-  const [filteredPokemons, setFilteredPokemon] = useState(pokemons);
-
-  useEffect((pokemons) => {
-    // setIsLoading(true);
-    fetch(
-      "https://raw.githubusercontent.com/Purukitto/pokemon-data.json/master/pokedex.json"
-    )
-      .then((response) => response.json())
-      .then((pokemons) => setPokemons(pokemons));
-  }, []);
-
-  // console.log(pokemons);
+function Home() {
+  const [pokemonList, setPokemonList] = useState([]);
+  const [pokemonInfo, setPokemonInfo] = useState({});
 
   useEffect(() => {
-    const newFilteredPokemons = pokemons.filter((pokemon) => {
-      return pokemon.name.english.toLocaleLowerCase().includes(searchField);
-    });
-    setFilteredPokemon(newFilteredPokemons);
-  }, [pokemons, searchField]);
+    async function fetchData() {
+      const pokemonListResponse = await fetch("https://pokeapi.co/api/v2/pokemon/");
+      const pokemonListData = await pokemonListResponse.json();
+      setPokemonList(pokemonListData.results);
 
-  const onSearchChange = (event) => {
-    const searchFieldString = event.target.value.toLocaleLowerCase();
-    setSearchField(searchFieldString);
-  };
+      for (const pokemon of pokemonListData.results) {
+        const pokemonInfoResponse = await fetch(pokemon.url);
+        const pokemonInfoData = await pokemonInfoResponse.json();
+        setPokemonInfo((prevPokemonInfo) => ({
+          ...prevPokemonInfo,
+          [pokemon.name]: pokemonInfoData,
+        }));
+      }
+    }
+
+    fetchData();
+  }, []);
 
   return (
-    <div className="App">
-      <div className="container">
-        <SearchContainer onSearchHandler={onSearchChange} />
-        <PokemonList pokemons={filteredPokemons} />
-      </div>
+    <div>
+      <h1>Pokemon List</h1>
+      <ul>
+        {pokemonList.map((pokemon) => (
+          <li key={pokemon.name}>{pokemon.name}</li>
+        ))}
+      </ul>
+      <h1>Pokemon Info</h1>
+      {Object.keys(pokemonInfo).map((pokemonName) => (
+        <div key={pokemonName}>
+          <h2>{pokemonName}</h2>
+          <p>Weight: {pokemonInfo[pokemonName].weight}</p>
+          <p>Height: {pokemonInfo[pokemonName].height}</p>
+        </div>
+      ))}
     </div>
   );
-};
+}
 
 export default Home;
